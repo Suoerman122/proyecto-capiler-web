@@ -83,51 +83,6 @@
             color: #777; 
             max-width: 550px; 
         }
-
-        /* --- SECCIÓN DEL CARRUSEL PUBLICITARIO EN ALTA RESOLUCIÓN --- */
-        .seccion-publicidad {
-            width: 100%;
-            max-width: 750px; 
-            margin: 0 auto 60px auto;
-            padding: 0 20px;
-        }
-
-        .slider-wrapper {
-            width: 100%;
-            overflow: hidden;
-            border-radius: 12px; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-            background: #fff;
-        }
-
-        .slider {
-            display: flex;
-            width: 200%; 
-            animation: deslizarContinuo 10s infinite ease-in-out;
-            will-change: transform; /* Optimiza el renderizado de la animación por hardware */
-            transform: translateZ(0);
-        }
-
-        .slider img {
-            width: 50%; 
-            height: auto;
-            max-height: 480px;   
-            object-fit: contain; 
-            background-color: #fff; 
-            
-            /* ALGORITMOS DE ENFOQUE Y NITIDEZ */
-            image-rendering: -webkit-optimize-contrast; /* Máxima nitidez en Chrome, Safari y Opera */
-            image-rendering: crisp-edges;               /* Enfoque limpio en Firefox */
-            image-rendering: pixelated;                 /* Soporte de respaldo */
-            transform: translateZ(0);                   /* Evita el desenfoque durante el movimiento */
-        }
-
-        /* Animación automatizada para el cambio de imágenes */
-        @keyframes deslizarContinuo {
-            0%, 45% { transform: translateX(0); }       
-            50%, 95% { transform: translateX(-50%); }   
-            100% { transform: translateX(0); }          
-        }
         
         .btn-main { 
             margin-top: 35px; 
@@ -144,6 +99,50 @@
         .btn-main:hover { 
             background: var(--dorado-acento); 
             color: var(--blanco-puro); 
+        }
+
+        /* --- SECCIÓN DEL CARRUSEL AJUSTADA PARA MÁXIMA NITIDED Y SEPARACIÓN --- */
+        .seccion-publicidad {
+            width: 100%;
+            max-width: 500px;    /* Reducido para compactar píxeles y quitar lo borroso */
+            margin: 50px auto 60px auto; /* 50px de separación respecto al botón superior */
+            padding: 0 20px;
+        }
+
+        .slider-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            background: #fff;
+        }
+
+        .slider {
+            display: flex;
+            width: 200%; 
+            animation: deslizarContinuo 10s infinite ease-in-out;
+            will-change: transform; 
+            transform: translateZ(0);
+        }
+
+        .slider img {
+            width: 50%; 
+            height: auto;
+            max-height: 350px;   /* Altura máxima más compacta para evitar estiramientos */
+            object-fit: contain; 
+            background-color: #fff; 
+            
+            /* Filtros de renderizado nítido */
+            image-rendering: -webkit-optimize-contrast; 
+            image-rendering: crisp-edges;               
+            transform: translateZ(0);                   
+        }
+
+        /* Animación automatizada para el cambio de imágenes */
+        @keyframes deslizarContinuo {
+            0%, 45% { transform: translateX(0); }       
+            50%, 95% { transform: translateX(-50%); }   
+            100% { transform: translateX(0); }          
         }
 
         /* Sección de Productos Destacados */
@@ -200,7 +199,8 @@
             .nav-links a { margin: 0 10px; font-size: 11px; }
             .grid { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: 2.5rem; }
-            .slider img { max-height: 320px; } 
+            .seccion-publicidad { margin-top: 40px; } /* Ajuste de espacio en móviles */
+            .slider img { max-height: 280px; } 
         }
     </style>
 </head>
@@ -225,7 +225,7 @@
         <button class="btn-main">Explorar Línea</button>
     </header>
 
-    <!-- Banner Publicitario Deslizable con Filtros de Enfoque y Nitidez -->
+    <!-- Banner Publicitario Deslizable Optimizado en Espacio y Enfoque -->
     <section class="seccion-publicidad">
         <div class="slider-wrapper">
             <div class="slider">
