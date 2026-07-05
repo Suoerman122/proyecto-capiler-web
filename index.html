@@ -218,12 +218,60 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* --- SECCIÓN DE REDES Y CONTACTO --- */
+        .seccion-contacto {
+            padding: 60px 10%;
+            text-align: center;
+            background-color: var(--fondo-crema);
+        }
+        .contacto-grid {
+            max-width: 600px;
+            margin: 30px auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contacto-item {
+            font-size: 0.95rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .contacto-item a {
+            color: var(--texto-principal);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            border-bottom: 1px dashed #bbb;
+            padding-bottom: 2px;
+        }
+        .contacto-item a:hover {
+            color: var(--dorado-acento);
+            border-bottom-color: var(--dorado-acento);
+        }
+        .redes-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        .redes-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--texto-principal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .redes-links a:hover {
+            color: var(--dorado-acento);
+        }
+
         footer { 
             text-align: center; 
-            padding: 60px; 
+            padding: 40px 60px 60px 60px; 
             font-size: 0.8rem; 
             letter-spacing: 2px; 
             color: #bbb;
+            border-top: 1px solid #eae6df;
         }
 
         /* Responsivo para Celulares */
@@ -248,7 +296,8 @@
         <div class="nav-links">
             <a href="#">Colección</a>
             <a href="#">Filosofía</a>
-            <a href="#">Contacto</a>
+            <!-- ENLACE DE WHATSAPP EN MENÚ -->
+            <a href="https://wa.me/593983852805?text=Hola%20Capiler,%20me%20gustar%C3%ADa%20agendar%20una%20asesor%C3%ADa%20capilar." target="_blank">Contacto</a>
         </div>
     </nav>
 
@@ -256,7 +305,8 @@
     <header class="hero">
         <h1>Pureza Capilar</h1>
         <p>Tratamientos de alta gama diseñados para restaurar y elevar la esencia natural de tu cabello.</p>
-        <button class="btn-main">Explorar Línea</button>
+        <!-- ENLACE DE WHATSAPP EN BOTÓN PRINCIPAL -->
+        <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20quiero%20explorar%20la%20l%C3%ADnea%20de%20tratamientos.', '_blank')">Explorar Línea</button>
     </header>
 
     <!-- Banner Publicitario Deslizable Optimizado con Filtros de Contraste -->
@@ -290,7 +340,23 @@
                 <span class="resultado-header">Tu Diagnóstico Capilar</span>
                 <h4 id="res-titulo" class="resultado-titulo">Tratamiento Recomendado</h4>
                 <p id="res-desc" class="resultado-desc">Cargando recomendación...</p>
-                <button class="btn-main" style="margin-top: 0;" onclick="reiniciarQuiz()">Consultar Otro Caso</button>
+                <!-- BOTÓN INTEGRADO DE CONVERSIÓN PARA AGENDAR -->
+                <button class="btn-main" style="margin-top: 0; margin-bottom: 10px;" id="btn-whatsapp-quiz">Agendar Tratamiento</button>
+                <br>
+                <button class="btn-main" style="margin-top: 10px; border-color: #bbb; color: #888;" onclick="reiniciarQuiz()">Consultar Otro Caso</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: REDES SOCIALES Y CORREO ELECTRÓNICO -->
+    <section class="seccion-contacto">
+        <div class="contacto-grid">
+            <div class="contacto-item">
+                <span>Atención y Consultas: </span>
+                <a href="mailto:Maribel_bonilla@hotmail.es">Maribel_bonilla@hotmail.es</a>
+            </div>
+            <div class="redes-links">
+                <a href="https://www.instagram.com/capiler.ec?igsh=MTVkdXNueGJ0N21vaA==" target="_blank">Instagram</a>
             </div>
         </div>
     </section>
@@ -307,17 +373,27 @@
             
             const titulo = document.getElementById('res-titulo');
             const desc = document.getElementById('res-desc');
+            const btnWhatsapp = document.getElementById('btn-whatsapp-quiz');
+            let mensajePersonalizado = "";
             
             if (tipo === 'hidratacion') {
                 titulo.innerText = "Ritual Hidratación Profunda";
                 desc.innerText = "Utiliza puntas perfectas para sellar tus puntas y eliminar el frizz hidrata y reconstruye tu cabello con puntas perfectas también podemos utilizar el tratamiento con extracto de banana por su alto contenido de potasio que contiene, adicional te va a eliminar también la caída de cabello con tratamiento con extracto de banana elimina el frizz inmediatamente con células madres tratamiento.";
+                mensajePersonalizado = "Hola Capiler, mi diagnóstico fue Ritual Hidratación Profunda (Banana y Células Madres). Me interesa agendar.";
             } else if (tipo === 'cerafria') {
                 titulo.innerText = "Tratamiento con Cerafría";
                 desc.innerText = "Células madres con queratina reconstruye tu cabello alisa e hidrata y elimina la caída de cabello solamente lo puedes hacer con células madres con queratina y su sellador de células madres tratamiento nuestro champú sin sal de limpieza profunda para sellar totalmente antes de utilizar las células madre con queratina.";
+                mensajePersonalizado = "Hola Capiler, mi diagnóstico fue Tratamiento con Cerafría (Células Madres con Queratina). Quisiera separar una cita.";
             } else if (tipo === 'mantenimiento') {
                 titulo.innerText = "Línea de Cuidado Diario";
                 desc.innerText = "Hidrata reconstruye protege sella tus puntas con oro de colágeno con su alto contenido de ácido hialurónico y colágeno te van a reconstruir inmediatamente tus puntas y te la sellará igual manera con puntas perfectas puedes utilizar esta combinación un cóctel de tratamientos. Punta perfecta con oro de colágeno..";
+                mensajePersonalizado = "Hola Capiler, mi diagnóstico fue Línea de Cuidado Diario (Oro de Colágeno y Puntas Perfectas). Deseo más información.";
             }
+            
+            // Acción de redirección dinámica a WhatsApp según la respuesta elegida
+            btnWhatsapp.onclick = function() {
+                window.open("https://wa.me/593983852805?text=" + encodeURIComponent(mensajePersonalizado), "_blank");
+            };
             
             const resultadoBox = document.getElementById('quiz-resultado-box');
             resultadoBox.style.display = 'block';
