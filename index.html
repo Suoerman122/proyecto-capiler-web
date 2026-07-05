@@ -151,7 +151,9 @@
         }
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
+            grid-template-columns: repeat(1, 1fr); /* Cambiado a 1 columna para centrar el producto elegante de forma limpia */
+            max-width: 400px;
+            margin: 0 auto;
             gap: 50px; 
         }
         .card { 
@@ -183,7 +185,7 @@
             color: var(--dorado-acento); 
         }
 
-        /* --- NUEVOS ESTILOS: DIAGNOSTICADOR CAPILAR INNOVADOR --- */
+        /* --- DIAGNOSTICADOR CAPILAR INTERACTIVO --- */
         .seccion-quiz {
             background-color: #ffffff;
             padding: 80px 10%;
@@ -308,26 +310,14 @@
         </div>
     </section>
 
-    <!-- Vitrina de Productos -->
+    <!-- Vitrina de Productos (Solo con Premium Hair Care Centrado) -->
     <section class="seccion-productos">
         <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=600&auto=format&fit=crop" alt="Pure Essence Botánica">
-                <h3>Pure Essence Botánica</h3>
-                <p>Hidratación profunda diaria</p>
-                <span class="precio">$45.00</span>
-            </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1598440947619-2c35fd9571e0?q=80&w=600&auto=format&fit=crop" alt="Premium Hair Care Serum">
                 <h3>Premium Hair Care</h3>
                 <p>Serum reparador con destellos de seda</p>
                 <span class="precio">$38.00</span>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=600&auto=format&fit=crop" alt="Ritual Nocturno">
-                <h3>Ritual Nocturno</h3>
-                <p>Restauración celular intensa</p>
-                <span class="precio">$52.00</span>
             </div>
         </div>
     </section>
@@ -366,14 +356,11 @@
     <!-- INTERACTIVIDAD CON JAVASCRIPT -->
     <script>
         function mostrarResultado(tipo) {
-            // Ocultamos la pregunta con suavidad
             document.getElementById('quiz-pregunta-box').style.display = 'none';
             
-            // Contenedores de texto del resultado
             const titulo = document.getElementById('res-titulo');
             const desc = document.getElementById('res-desc');
             
-            // Asignación de respuestas según el click
             if (tipo === 'hidratacion') {
                 titulo.innerText = "Ritual Hidratación Profunda";
                 desc.innerText = "Tu cabello necesita recuperar agua y nutrientes esenciales. Te sugerimos nuestro tratamiento de Hidratación Profunda con extractos de uva y vitamina E para eliminar el frizz por completo y devolverle el brillo natural.";
@@ -385,13 +372,11 @@
                 desc.innerText = "Para mantener tu estructura capilar en óptimas condiciones, te recomendamos complementar tu rutina diaria con el Pure Essence Botánica y unas gotas de nuestro Premium Hair Care Serum en las puntas.";
             }
             
-            // Mostramos el resultado de forma interactiva
             const resultadoBox = document.getElementById('quiz-resultado-box');
             resultadoBox.style.display = 'block';
         }
 
         function reiniciarQuiz() {
-            // Regresar al estado inicial de la pregunta
             document.getElementById('quiz-resultado-box').style.display = 'none';
             document.getElementById('quiz-pregunta-box').style.display = 'block';
         }
