@@ -10,6 +10,7 @@
             --fondo-crema: #f9f6f0;  /* Tono crema suave de fondo */
             --texto-principal: #4a4a4a;
             --dorado-acento: #ccaa7c;  /* Dorado elegante para detalles */
+            --color-hueso: #f5f2eb;    /* Color hueso exacto para el contorno */
             --blanco-puro: #ffffff;
         }
 
@@ -35,13 +36,14 @@
             align-items: center;
         }
 
-        /* Estilos para transformar el logo en un círculo perfecto */
+        /* Ajustes de Alta Resolución y Contorno Hueso */
         .logo-img { 
-            width: 70px;      /* Ancho fijo */
-            height: 70px;     /* Alto idéntico para que sea un cuadrado perfecto */
-            object-fit: cover; /* Recorta los extremos para centrar el contenido */
-            border-radius: 50%; /* Hace la imagen completamente redonda */
-            border: 1px solid rgba(204, 170, 124, 0.3); /* Línea dorada muy sutil alrededor */
+            width: 120px;      /* Mayor tamaño para máxima resolución y claridad */
+            height: 120px;     /* Proporción idéntica para círculo perfecto */
+            object-fit: cover; /* Asegura que el logo se centre perfectamente */
+            border-radius: 50%; /* Corte completamente circular */
+            border: 3px solid var(--color-hueso); /* Contorno grueso color hueso */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Sombra milimétrica para dar relieve */
         }
         
         .nav-links a { 
@@ -148,7 +150,8 @@
 
         /* Responsivo para Celulares */
         @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; padding: 20px; }
+            nav { flex-direction: column; gap: 20px; padding: 20px; }
+            .logo-img { width: 100px; height: 100px; } /* Se adapta sutilmente en pantallas chicas */
             .nav-links a { margin: 0 10px; font-size: 11px; }
             .grid { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: 2.5rem; }
@@ -160,7 +163,7 @@
     <!-- Navegación -->
     <nav>
         <div class="logo-container">
-            <!-- Imagen en formato de círculo perfecto -->
+            <!-- Imagen en Alta resolución local con contorno color hueso -->
             <img src="Capiler_2.jpg" alt="CAPILER PROFESIONAL" class="logo-img">
         </div>
         <div class="nav-links">
