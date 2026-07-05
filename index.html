@@ -5,69 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAPILER | Minimalist Beauty</title>
     <style>
-        /* Variables de color estilo "Premium Natural" */
+        /* Variables de color basadas en la nueva identidad visual */
         :root {
-            --fondo: #fdfaf6;
-            --texto: #4a4a4a;
-            --acento: #d4b499; /* Tono arena suave */
-            --blanco: #ffffff;
+            --fondo-crema: #f9f6f0;  /* Tono crema suave de fondo */
+            --texto-principal: #4a4a4a;
+            --dorado-acento: #ccaa7c;  /* Dorado elegante para detalles */
+            --blanco-puro: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Helvetica Neue', Arial, sans-serif; 
             line-height: 1.8; 
-            color: var(--texto); 
-            background-color: var(--fondo);
+            color: var(--texto-principal); 
+            background-color: var(--fondo-crema);
         }
 
-        /* Nav Minimalista */
+        /* Nav con el nuevo Logo integrado */
         nav { 
-            display: flex; justify-content: space-between; padding: 30px 10%; 
-            align-items: center; 
+            display: flex; 
+            justify-content: space-between; 
+            padding: 20px 10%; 
+            align-items: center;
+            background-color: var(--fondo-crema);
         }
-        .logo { font-size: 20px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; }
-        .nav-links a { 
-            text-decoration: none; color: var(--texto); margin-left: 30px; 
-            font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
 
-        /* Hero */
-        .hero { 
-            height: 70vh; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; text-align: center;
+        /* Estilos para el nuevo logo generado */
+        .logo-img { 
+            height: 65px; /* Altura ideal para la barra de navegación */
+            width: auto;
+            object-fit: contain;
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 200; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero p { font-weight: 300; font-size: 1.1rem; color: #888; max-width: 500px; }
+        
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--texto-principal); 
+            margin-left: 30px; 
+            font-size: 13px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--dorado-acento);
+        }
+
+        /* Hero / Portada */
+        .hero { 
+            height: 65vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 { 
+            font-size: 3.5rem; 
+            font-weight: 300; 
+            margin-bottom: 20px; 
+            letter-spacing: -1px; 
+            color: #333;
+        }
+        .hero p { 
+            font-weight: 300; 
+            font-size: 1.1rem; 
+            color: #777; 
+            max-width: 550px; 
+        }
         
         .btn-main { 
-            margin-top: 30px; padding: 15px 40px; border: 1px solid var(--acento);
-            background: transparent; color: var(--acento); text-transform: uppercase;
-            letter-spacing: 2px; font-size: 12px; cursor: pointer; transition: 0.3s;
+            margin-top: 35px; 
+            padding: 14px 45px; 
+            border: 1px solid var(--dorado-acento);
+            background: transparent; 
+            color: var(--dorado-acento); 
+            text-transform: uppercase;
+            letter-spacing: 2px; 
+            font-size: 12px; 
+            cursor: pointer; 
+            transition: all 0.3s ease;
         }
-        .btn-main:hover { background: var(--acento); color: white; }
+        .btn-main:hover { 
+            background: var(--dorado-acento); 
+            color: var(--blanco-puro); 
+        }
 
-        /* Productos */
-        .seccion-productos { padding: 80px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
-        .card { text-align: center; }
-        .card img { width: 100%; height: 350px; object-fit: cover; margin-bottom: 20px; background: #eee; }
-        .card h3 { font-weight: 400; font-size: 1.2rem; }
-        .card p { font-size: 0.9rem; color: #999; margin-bottom: 10px; }
-        .precio { display: block; font-size: 0.9rem; color: #bbb; }
+        /* Sección de Productos Destacados */
+        .seccion-productos { 
+            padding: 60px 10% 100px; 
+        }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 50px; 
+        }
+        .card { 
+            text-align: center; 
+        }
+        .card img { 
+            width: 100%; 
+            height: 380px; 
+            object-fit: cover; 
+            margin-bottom: 20px; 
+            background: #eee;
+            border-radius: 4px;
+        }
+        .card h3 { 
+            font-weight: 400; 
+            font-size: 1.2rem; 
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .card p { 
+            font-size: 0.9rem; 
+            color: #888; 
+            margin-bottom: 10px; 
+        }
+        .precio { 
+            display: block; 
+            font-size: 1rem; 
+            font-weight: 500;
+            color: var(--dorado-acento); 
+        }
 
-        footer { text-align: center; padding: 60px; font-size: 0.8rem; letter-spacing: 2px; color: #aaa; }
+        footer { 
+            text-align: center; 
+            padding: 60px; 
+            font-size: 0.8rem; 
+            letter-spacing: 2px; 
+            color: #bbb;
+            border-top: 1px solid #eae6df;
+        }
 
+        /* Responsivo para Celulares */
         @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
+            nav { flex-direction: column; gap: 15px; padding: 20px; }
+            .nav-links a { margin: 0 10px; font-size: 11px; }
+            .grid { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navegación -->
     <nav>
-        <div class="logo">CAPILER</div>
+        <div class="logo-container">
+            <!-- Aquí está integrado tu nuevo logo -->
+            <img src="https://images.unsplash.com/photo-1626785774573-4b799315347d?q=80&w=300&auto=format&fit=crop" alt="CAPILER PROFESIONAL" class="logo-img">
+        </div>
         <div class="nav-links">
             <a href="#">Colección</a>
             <a href="#">Filosofía</a>
@@ -75,37 +168,40 @@
         </div>
     </nav>
 
+    <!-- Sección Principal -->
     <header class="hero">
         <h1>Pureza Capilar</h1>
-        <p>Tratamientos diseñados para elevar la esencia natural de tu cabello con ingredientes botánicos de alta gama.</p>
+        <p>Tratamientos de alta gama diseñados para restaurar y elevar la esencia natural de tu cabello.</p>
         <button class="btn-main">Explorar Línea</button>
     </header>
 
+    <!-- Vitrina de Productos -->
     <section class="seccion-productos">
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=600&auto=format&fit=crop" alt="Producto">
-                <h3>Esencia Botánica</h3>
-                <p>Hidratación profunda</p>
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=600&auto=format&fit=crop" alt="Pure Essence Botánica">
+                <h3>Pure Essence Botánica</h3>
+                <p>Hidratación profunda diaria</p>
                 <span class="precio">$45.00</span>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1598440947619-2c35fd9571e0?q=80&w=600&auto=format&fit=crop" alt="Producto">
-                <h3>Serum de Seda</h3>
-                <p>Brillo orgánico</p>
+                <img src="https://images.unsplash.com/photo-1598440947619-2c35fd9571e0?q=80&w=600&auto=format&fit=crop" alt="Premium Hair Care Serum">
+                <h3>Premium Hair Care</h3>
+                <p>Serum reparador con destellos de seda</p>
                 <span class="precio">$38.00</span>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=600&auto=format&fit=crop" alt="Producto">
+                <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=600&auto=format&fit=crop" alt="Ritual Nocturno">
                 <h3>Ritual Nocturno</h3>
-                <p>Reparación intensiva</p>
+                <p>Restauración celular intensa</p>
                 <span class="precio">$52.00</span>
             </div>
         </div>
     </section>
 
+    <!-- Pie de página -->
     <footer>
-        &copy; 2026 CAPILER. BEYOND BEAUTY.
+        &copy; 2026 CAPILER PROFESIONAL. BEYOND BEAUTY.
     </footer>
 
 </body>
