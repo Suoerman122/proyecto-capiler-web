@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAPILER | Minimalist Beauty</title>
     <style>
-        /* Variables de color basadas en la nueva identidad visual */
+        /* Variables de color basadas en la identidad visual */
         :root {
-            --fondo-crema: #f9f6f0;  /* Tono crema suave de fondo */
+            --fondo-crema: #f9f6f0;  
             --texto-principal: #4a4a4a;
-            --dorado-acento: #ccaa7c;  /* Dorado elegante para detalles */
-            --color-hueso: #f5f2eb;    /* Color hueso exacto para el contorno */
+            --dorado-acento: #ccaa7c;  
+            --color-hueso: #f5f2eb;    
             --blanco-puro: #ffffff;
         }
 
@@ -22,7 +22,7 @@
             background-color: var(--fondo-crema);
         }
 
-        /* Nav con el nuevo Logo integrado */
+        /* Nav con el Logo integrado */
         nav { 
             display: flex; 
             justify-content: space-between; 
@@ -36,7 +36,6 @@
             align-items: center;
         }
 
-        /* Ajustes de Alta Resolución y Contorno Hueso */
         .logo-img { 
             width: 120px;      
             height: 120px;     
@@ -62,7 +61,7 @@
 
         /* Hero / Portada */
         .hero { 
-            height: 45vh; 
+            height: 40vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
@@ -84,10 +83,10 @@
             max-width: 550px; 
         }
 
-        /* --- SECCIÓN DEL CARRUSEL PUBLICITARIO CON RECORTE INTELIGENTE --- */
+        /* --- SECCIÓN PUBLICITARIA: MÁXIMA RESOLUCIÓN Y CONTORNO --- */
         .seccion-publicidad {
             width: 100%;
-            max-width: 600px; /* Ancho óptimo para centrar la atención en el flyer */
+            max-width: 750px; /* Un poco más ancho para que los textos limpios se lean perfectos */
             margin: 0 auto 60px auto;
             padding: 0 20px;
         }
@@ -95,8 +94,9 @@
         .slider-wrapper {
             width: 100%;
             overflow: hidden;
-            border-radius: 12px; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border-radius: 14px; 
+            border: 4px solid var(--color-hueso); /* Elegante contorno color hueso */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06); /* Mayor relieve visual */
             background: #fff;
         }
 
@@ -108,12 +108,11 @@
 
         .slider img {
             width: 50%; 
-            height: 320px;        /* Altura fija controlada */
-            object-fit: cover;    /* ¡Aquí ocurre la magia! Recorta los bordes negros y la interfaz del móvil */
-            object-position: center 40%; /* Enfoca un poco más arriba del centro para no perder los títulos */
+            height: auto;        
+            aspect-ratio: 4 / 3; /* Proporción ideal para flyers horizontales */
+            object-fit: fill;    /* Muestra la imagen completa de borde a borde con total nitidez */
         }
 
-        /* Animación para cambiar de imagen automáticamente y pausar en cada una */
         @keyframes deslizarContinuo {
             0%, 45% { transform: translateX(0); }       
             50%, 95% { transform: translateX(-50%); }   
@@ -191,7 +190,6 @@
             .nav-links a { margin: 0 10px; font-size: 11px; }
             .grid { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: 2.5rem; }
-            .slider img { height: 260px; } /* Ajuste de altura menor para pantallas de móvil */
         }
     </style>
 </head>
@@ -216,12 +214,13 @@
         <button class="btn-main">Explorar Línea</button>
     </header>
 
-    <!-- Banner Publicitario Deslizable (Slider con imágenes ya recortadas por CSS) -->
+    <!-- Banner Publicitario Actualizado y Optimizado -->
     <section class="seccion-publicidad">
         <div class="slider-wrapper">
             <div class="slider">
-                <img src="WhatsApp Image 2026-07-05 at 03.03.34.jpeg" alt="Tratamiento con Cerafria Beneficios">
-                <img src="WhatsApp Image 2026-07-05 at 03.03.34 (3).jpeg" alt="Hidratación Profunda Capiler">
+                <!-- Se usan los nombres exactos de los nuevos archivos limpios -->
+                <img src="WhatsApp Image 2026-07-05 at 03.03.34.jpeg" alt="Hidratación Profunda Capiler">
+                <img src="WhatsApp Image 2026-07-05 at 03.03.34 (3).jpeg" alt="Tratamiento con Cerafria Beneficios">
             </div>
         </div>
     </section>
