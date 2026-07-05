@@ -7,10 +7,10 @@
     <style>
         /* Variables de color basadas en la nueva identidad visual */
         :root {
-            --fondo-crema: #f9f6f0;  /* Tono crema suave de fondo */
+            --fondo-crema: #f9f6f0;  
             --texto-principal: #4a4a4a;
-            --dorado-acento: #ccaa7c;  /* Dorado elegante para detalles */
-            --color-hueso: #f5f2eb;    /* Color hueso exacto para el contorno */
+            --dorado-acento: #ccaa7c;  
+            --color-hueso: #f5f2eb;    
             --blanco-puro: #ffffff;
         }
 
@@ -87,7 +87,7 @@
         /* --- SECCIÓN DEL CARRUSEL PUBLICITARIO EN ALTA RESOLUCIÓN --- */
         .seccion-publicidad {
             width: 100%;
-            max-width: 750px; /* Un poco más amplio para leer mejor los textos */
+            max-width: 750px; 
             margin: 0 auto 60px auto;
             padding: 0 20px;
         }
@@ -104,14 +104,22 @@
             display: flex;
             width: 200%; 
             animation: deslizarContinuo 10s infinite ease-in-out;
+            will-change: transform; /* Optimiza el renderizado de la animación por hardware */
+            transform: translateZ(0);
         }
 
         .slider img {
             width: 50%; 
             height: auto;
-            max-height: 480px;   /* Altura máxima optimizada */
-            object-fit: contain; /* Evita distorsiones y mantiene las letras nítidas */
+            max-height: 480px;   
+            object-fit: contain; 
             background-color: #fff; 
+            
+            /* ALGORITMOS DE ENFOQUE Y NITIDEZ */
+            image-rendering: -webkit-optimize-contrast; /* Máxima nitidez en Chrome, Safari y Opera */
+            image-rendering: crisp-edges;               /* Enfoque limpio en Firefox */
+            image-rendering: pixelated;                 /* Soporte de respaldo */
+            transform: translateZ(0);                   /* Evita el desenfoque durante el movimiento */
         }
 
         /* Animación automatizada para el cambio de imágenes */
@@ -217,7 +225,7 @@
         <button class="btn-main">Explorar Línea</button>
     </header>
 
-    <!-- Banner Publicitario Deslizable con Nuevas Imágenes Limpias -->
+    <!-- Banner Publicitario Deslizable con Filtros de Enfoque y Nitidez -->
     <section class="seccion-publicidad">
         <div class="slider-wrapper">
             <div class="slider">
