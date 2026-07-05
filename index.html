@@ -225,17 +225,17 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(249, 246, 240, 0.98); /* Fondo crema sutilmente translúcido */
+            background-color: rgba(249, 246, 240, 0.99); 
             z-index: 1000;
             overflow-y: auto;
-            padding: 60px 10%;
+            padding: 60px 5%;
             animation: fadeIn 0.4s ease forwards;
         }
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto 40px auto;
             border-bottom: 1px solid #eae6df;
             padding-bottom: 20px;
@@ -255,18 +255,18 @@
         }
         .btn-cerrar:hover { color: var(--dorado-acento); }
         
-        /* Grid de Productos */
+        /* Grid de Productos Optimizado */
         .catalogo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         .producto-card {
             background: var(--blanco-puro);
             border-radius: 12px;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             border: 1px solid #f0ede6;
@@ -274,25 +274,35 @@
             flex-direction: column;
             justify-content: space-between;
         }
+
+        /* EFECTO DE RECORTE INTELIGENTE: Elimina bordes negros de las capturas */
+        .producto-card .img-container {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #fff;
+        }
         .producto-card img {
             width: 100%;
-            height: 220px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            background: #fff;
+            height: 100%;
+            object-fit: cover;      /* Zoom centralizado automático */
+            object-position: center; /* Enfoca el centro del diseño */
         }
+
         .producto-card h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 400;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #333;
         }
         .producto-card p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #777;
             font-weight: 300;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
         .producto-card .btn-main {
             margin-top: auto;
@@ -378,7 +388,6 @@
             <img src="Capiler_2.jpg" alt="CAPILER PROFESIONAL" class="logo-img">
         </div>
         <div class="nav-links">
-            <!-- Acción JS asignada para abrir el catálogo -->
             <a onclick="abrirCatalogo()">Catálogo</a>
             <a href="#">Filosofía</a>
             <a href="https://wa.me/593983852805?text=Hola%20Capiler,%20me%20gustar%C3%ADa%20agendar%20una%20asesor%C3%ADa%20capilar." target="_blank">Contacto</a>
@@ -392,7 +401,7 @@
         <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20quiero%20explorar%20la%20l%C3%ADnea%20de%20tratamientos.', '_blank')">Explorar Línea</button>
     </header>
 
-    <!-- Banner Publicitario Deslizable Optimizado con Filtros de Contraste -->
+    <!-- Banner Publicitario Deslizable -->
     <section class="seccion-publicidad">
         <div class="slider-wrapper">
             <div class="slider">
@@ -402,13 +411,12 @@
         </div>
     </section>
 
-    <!-- SECCIÓN INTERACTIVA: DIAGNOSTICADOR EXPRESS -->
+    <!-- DIAGNOSTICADOR EXPRESS -->
     <section class="seccion-quiz">
         <h2>Encuentra tu Ritual Ideal</h2>
         <p style="font-weight: 300; color: #777; max-width: 500px; margin: 5px auto 0 auto;">Responde a una sola pregunta y nuestra inteligencia capilar te recomendará el tratamiento exacto.</p>
         
         <div class="quiz-container">
-            <!-- Bloque de la Pregunta -->
             <div id="quiz-pregunta-box">
                 <h3>¿Cuál es la mayor necesidad actual de tu cabello?</h3>
                 <div class="quiz-opciones">
@@ -418,7 +426,6 @@
                 </div>
             </div>
 
-            <!-- Bloque Dinámico de Resultados -->
             <div id="quiz-resultado-box" class="resultado-box">
                 <span class="resultado-header">Tu Diagnóstico Capilar</span>
                 <h4 id="res-titulo" class="resultado-titulo">Tratamiento Recomendado</h4>
@@ -430,7 +437,7 @@
         </div>
     </section>
 
-    <!-- VENTANA EMERGENTE (MODAL) DEL CATÁLOGO -->
+    <!-- VENTANA EMERGENTE (MODAL) DEL CATÁLOGO ACTUALIZADO CON LAS 9 IMÁGENES -->
     <div id="ventana-catalogo" class="modal-catalogo">
         <div class="modal-header">
             <h2>Nuestra Línea Exclusiva</h2>
@@ -440,37 +447,97 @@
         <div class="catalogo-grid">
             <!-- Producto 1 -->
             <div class="producto-card">
-                <img src="Tratamiendo1.jpg" alt="Tratamiento de Extracto de Banana">
+                <div class="img-container"><img src="1.jpeg" alt="Tratamiento con Cerafría"></div>
                 <div>
-                    <h4>Extracto de Banana</h4>
-                    <p>Fórmula enriquecida con potasio y células madre. Elimina el frizz de forma inmediata y frena eficazmente la caída capilar.</p>
+                    <h4>Tratamiento con Cerafría</h4>
+                    <p>Restauración profunda de las fibras capilares. Alisa el cabello por 3 meses, nutre intensamente y previene el maltrato.</p>
                 </div>
-                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20de%20Extracto%20de%20Banana.', '_blank')">Consultar</button>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20con%20Cerafr%C3%ADa.', '_blank')">Consultar por WhatsApp</button>
             </div>
 
             <!-- Producto 2 -->
             <div class="producto-card">
-                <img src="Tratamiendo2.jpg" alt="Cerafría Células Madres con Queratina">
+                <div class="img-container"><img src="2.jpeg" alt="Hidratación Profunda"></div>
                 <div>
-                    <h4>Cerafría Queratina</h4>
-                    <p>Tratamiento avanzado de células madre con queratina. Diseñado para alisar, hidratar, reconstruir y reducir el volumen no deseado.</p>
+                    <h4>Hidratación Profunda</h4>
+                    <p>Fórmula con Vitamina E que elimina el frizz hasta un 70%. Devuelve el brillo, el color a cabellos decolorados y alisa progresivamente.</p>
                 </div>
-                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20de%20Cerafr%C3%ADa%20Queratina.', '_blank')">Consultar</button>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20Hidrataci%C3%B3n%20Profunda.', '_blank')">Consultar por WhatsApp</button>
             </div>
 
             <!-- Producto 3 -->
             <div class="producto-card">
-                <img src="Tratamiendo1.jpg" alt="Oro de Colágeno y Ácido Hialurónico">
+                <div class="img-container"><img src="3.jpeg" alt="Cerafría Advance"></div>
                 <div>
-                    <h4>Oro de Colágeno</h4>
-                    <p>Cóctel premium con alto contenido de ácido hialurónico. Restaura al instante la elasticidad y sella perfectamente las puntas.</p>
+                    <h4>Cerafría Advance</h4>
+                    <p>Presentación premium con exquisito aroma a Melón Limón. Con aceite de argán para restaurar, hidratar y sellar las raíces.</p>
                 </div>
-                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20Oro%20de%20Col%C3%A1geno.', '_blank')">Consultar</button>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20Cerafr%C3%ADa%20Advance.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="4.jpeg" alt="Catálogo de Productos Capiler"></div>
+                <div>
+                    <h4>Línea Capiler Profesional</h4>
+                    <p>Tu dosis diaria de belleza minimalista. Descubre la colección completa diseñada para la alta gama del cuidado de tu cabello.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20quiero%20conocer%20toda%20la%20L%C3%ADnea%20Profesional.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="5.jpeg" alt="Tratamiento con Keratina"></div>
+                <div>
+                    <h4>Tratamiento con Keratina</h4>
+                    <p>Ritual completo con Puntas Perfectas y Shampoo sin sal. Alisado impecable, sedosidad única y brillo de espejo.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20con%20Keratina.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="6.jpeg" alt="Keratina con Botox"></div>
+                <div>
+                    <h4>Keratina con Botox</h4>
+                    <p>Máxima reconstrucción de base a puntas. Brinda un alisado completo, hidratación profunda y aporta un extra de colágeno natural.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20Keratina%20con%20Botox.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="7.jpeg" alt="Keratina Extra Fuerte"></div>
+                <div>
+                    <h4>Keratina Extra Fuerte</h4>
+                    <p>La solución definitiva para cabellos necios o muy encrespados. Elimina el frizz por completo, aportando suavidad extrema.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20Keratina%20Extra%20Fuerte.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="8.jpeg" alt="Acondicionador Advance"></div>
+                <div>
+                    <h4>Acondicionador Advance</h4>
+                    <p>Limpieza y máxima hidratación con colágeno, aloe vera, biotina y jojoba. Repara el daño térmico y devuelve la fuerza.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20el%20Acondicionador%20Advance.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 9 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="9.jpeg" alt="Tratamiento Alisante Advance"></div>
+                <div>
+                    <h4>Tratamiento Alisante Advance</h4>
+                    <p>Potenciado con Keratina y Elastina. Alisa hasta un 99.9%, ideal para cabellos rizados que buscan control, sedosidad y brillo.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20Alisante%20Advance.', '_blank')">Consultar por WhatsApp</button>
             </div>
         </div>
     </div>
 
-    <!-- SECCIÓN: REDES SOCIALES Y CORREO ELECTRÓNICO -->
+    <!-- SECCIÓN: REDES SOCIALES Y CONTACTO -->
     <section class="seccion-contacto">
         <div class="contacto-grid">
             <div class="contacto-item">
@@ -483,22 +550,20 @@
         </div>
     </section>
 
-    <!-- Pie de página -->
     <footer>
         &copy; 2026 CAPILER PROFESIONAL. BEYOND BEAUTY.
     </footer>
 
     <!-- INTERACTIVIDAD CON JAVASCRIPT -->
     <script>
-        // Funciones para controlar el Catálogo Flotante
         function abrirCatalogo() {
             document.getElementById('ventana-catalogo').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Bloquea el scroll de fondo
+            document.body.style.overflow = 'hidden'; 
         }
 
         function cerrarCatalogo() {
             document.getElementById('ventana-catalogo').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Libera el scroll
+            document.body.style.overflow = 'auto'; 
         }
 
         function mostrarResultado(tipo) {
