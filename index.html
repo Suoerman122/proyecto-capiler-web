@@ -55,6 +55,7 @@
             text-transform: uppercase;
             font-weight: 400;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
         .nav-links a:hover {
             color: var(--dorado-acento);
@@ -218,6 +219,88 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* --- VENTANA MODAL DEL CATÁLOGO --- */
+        .modal-catalogo {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(249, 246, 240, 0.98); /* Fondo crema sutilmente translúcido */
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 60px 10%;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            border-bottom: 1px solid #eae6df;
+            padding-bottom: 20px;
+        }
+        .modal-header h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .btn-cerrar {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--texto-principal);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .btn-cerrar:hover { color: var(--dorado-acento); }
+        
+        /* Grid de Productos */
+        .catalogo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .producto-card {
+            background: var(--blanco-puro);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid #f0ede6;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .producto-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            background: #fff;
+        }
+        .producto-card h4 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .producto-card p {
+            font-size: 0.9rem;
+            color: #777;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .producto-card .btn-main {
+            margin-top: auto;
+            padding: 10px 20px;
+            font-size: 11px;
+            width: 100%;
+        }
+
         /* --- SECCIÓN DE REDES Y CONTACTO --- */
         .seccion-contacto {
             padding: 60px 10%;
@@ -283,6 +366,7 @@
             .slider img { max-height: 260px; } 
             .quiz-container { padding: 25px 20px; }
             .seccion-quiz { padding: 60px 20px; }
+            .modal-catalogo { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -294,9 +378,9 @@
             <img src="Capiler_2.jpg" alt="CAPILER PROFESIONAL" class="logo-img">
         </div>
         <div class="nav-links">
-            <a href="#">Colección</a>
+            <!-- Acción JS asignada para abrir el catálogo -->
+            <a onclick="abrirCatalogo()">Catálogo</a>
             <a href="#">Filosofía</a>
-            <!-- ENLACE DE WHATSAPP EN MENÚ -->
             <a href="https://wa.me/593983852805?text=Hola%20Capiler,%20me%20gustar%C3%ADa%20agendar%20una%20asesor%C3%ADa%20capilar." target="_blank">Contacto</a>
         </div>
     </nav>
@@ -305,7 +389,6 @@
     <header class="hero">
         <h1>Pureza Capilar</h1>
         <p>Tratamientos de alta gama diseñados para restaurar y elevar la esencia natural de tu cabello.</p>
-        <!-- ENLACE DE WHATSAPP EN BOTÓN PRINCIPAL -->
         <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20quiero%20explorar%20la%20l%C3%ADnea%20de%20tratamientos.', '_blank')">Explorar Línea</button>
     </header>
 
@@ -340,13 +423,52 @@
                 <span class="resultado-header">Tu Diagnóstico Capilar</span>
                 <h4 id="res-titulo" class="resultado-titulo">Tratamiento Recomendado</h4>
                 <p id="res-desc" class="resultado-desc">Cargando recomendación...</p>
-                <!-- BOTÓN INTEGRADO DE CONVERSIÓN PARA AGENDAR -->
                 <button class="btn-main" style="margin-top: 0; margin-bottom: 10px;" id="btn-whatsapp-quiz">Agendar Tratamiento</button>
                 <br>
                 <button class="btn-main" style="margin-top: 10px; border-color: #bbb; color: #888;" onclick="reiniciarQuiz()">Consultar Otro Caso</button>
             </div>
         </div>
     </section>
+
+    <!-- VENTANA EMERGENTE (MODAL) DEL CATÁLOGO -->
+    <div id="ventana-catalogo" class="modal-catalogo">
+        <div class="modal-header">
+            <h2>Nuestra Línea Exclusiva</h2>
+            <button class="btn-cerrar" onclick="cerrarCatalogo()">✕</button>
+        </div>
+        
+        <div class="catalogo-grid">
+            <!-- Producto 1 -->
+            <div class="producto-card">
+                <img src="Tratamiendo1.jpg" alt="Tratamiento de Extracto de Banana">
+                <div>
+                    <h4>Extracto de Banana</h4>
+                    <p>Fórmula enriquecida con potasio y células madre. Elimina el frizz de forma inmediata y frena eficazmente la caída capilar.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20de%20Extracto%20de%20Banana.', '_blank')">Consultar</button>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="producto-card">
+                <img src="Tratamiendo2.jpg" alt="Cerafría Células Madres con Queratina">
+                <div>
+                    <h4>Cerafría Queratina</h4>
+                    <p>Tratamiento avanzado de células madre con queratina. Diseñado para alisar, hidratar, reconstruir y reducir el volumen no deseado.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20de%20Cerafr%C3%ADa%20Queratina.', '_blank')">Consultar</button>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="producto-card">
+                <img src="Tratamiendo1.jpg" alt="Oro de Colágeno y Ácido Hialurónico">
+                <div>
+                    <h4>Oro de Colágeno</h4>
+                    <p>Cóctel premium con alto contenido de ácido hialurónico. Restaura al instante la elasticidad y sella perfectamente las puntas.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20Oro%20de%20Col%C3%A1geno.', '_blank')">Consultar</button>
+            </div>
+        </div>
+    </div>
 
     <!-- SECCIÓN: REDES SOCIALES Y CORREO ELECTRÓNICO -->
     <section class="seccion-contacto">
@@ -368,6 +490,17 @@
 
     <!-- INTERACTIVIDAD CON JAVASCRIPT -->
     <script>
+        // Funciones para controlar el Catálogo Flotante
+        function abrirCatalogo() {
+            document.getElementById('ventana-catalogo').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Bloquea el scroll de fondo
+        }
+
+        function cerrarCatalogo() {
+            document.getElementById('ventana-catalogo').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Libera el scroll
+        }
+
         function mostrarResultado(tipo) {
             document.getElementById('quiz-pregunta-box').style.display = 'none';
             
@@ -382,7 +515,7 @@
                 mensajePersonalizado = "Hola Capiler, mi diagnóstico fue Ritual Hidratación Profunda (Banana y Células Madres). Me interesa agendar.";
             } else if (tipo === 'cerafria') {
                 titulo.innerText = "Tratamiento con Cerafría";
-                desc.innerText = "Células madres con queratina reconstruye tu cabello alisa e hidrata y elimina la caída de cabello solamente lo puedes hacer con células madres con queratina y su sellador de células madres tratamiento nuestro champú sin sal de limpieza profunda para sellar totalmente antes de utilizar las células madre con queratina.";
+                desc.innerText = "Células madres con queratina reconstruye tu cabello alisa e hidrata y elimina la caída de cabello solamente lo puedes hacer con células madres con queratina and su sellador de células madres tratamiento nuestro champú sin sal de limpieza profunda para sellar totalmente antes de utilizar las células madre con queratina.";
                 mensajePersonalizado = "Hola Capiler, mi diagnóstico fue Tratamiento con Cerafría (Células Madres con Queratina). Quisiera separar una cita.";
             } else if (tipo === 'mantenimiento') {
                 titulo.innerText = "Línea de Cuidado Diario";
@@ -390,7 +523,6 @@
                 mensajePersonalizado = "Hola Capiler, mi diagnóstico fue Línea de Cuidado Diario (Oro de Colágeno y Puntas Perfectas). Deseo más información.";
             }
             
-            // Acción de redirección dinámica a WhatsApp según la respuesta elegida
             btnWhatsapp.onclick = function() {
                 window.open("https://wa.me/593983852805?text=" + encodeURIComponent(mensajePersonalizado), "_blank");
             };
