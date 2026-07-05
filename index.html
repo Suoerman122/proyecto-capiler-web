@@ -104,7 +104,7 @@
         /* --- CARRUSEL ULTRA-NITIDED CON FILTROS --- */
         .seccion-publicidad {
             width: 100%;
-            max-width: 440px;    /* Reducido ligeramente más para forzar mayor densidad de píxeles */
+            max-width: 440px;    
             margin: 50px auto 60px auto; 
             padding: 0 20px;
         }
@@ -132,16 +132,13 @@
             object-fit: contain; 
             background-color: #fff; 
             
-            /* Renderizado de bordes limpios */
             image-rendering: -webkit-optimize-contrast; 
             image-rendering: crisp-edges;               
             transform: translateZ(0);       
 
-            /* FILTRO DE ENFOQUE: Eleva el contraste sutilmente para hacer las letras más legibles */
             filter: contrast(1.06) brightness(0.99) saturate(1.02);            
         }
 
-        /* Animación automatizada para el cambio de imágenes */
         @keyframes deslizarContinuo {
             0%, 45% { transform: translateX(0); }       
             50%, 95% { transform: translateX(-50%); }   
@@ -186,13 +183,85 @@
             color: var(--dorado-acento); 
         }
 
+        /* --- NUEVOS ESTILOS: DIAGNOSTICADOR CAPILAR INNOVADOR --- */
+        .seccion-quiz {
+            background-color: #ffffff;
+            padding: 80px 10%;
+            text-align: center;
+            border-top: 1px solid #eae6df;
+            border-bottom: 1px solid #eae6df;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 40px auto 0 auto;
+            background: var(--fondo-crema);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+        .quiz-container h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+        .quiz-opciones {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .quiz-btn {
+            background: var(--blanco-puro);
+            border: 1px solid #e2ded6;
+            padding: 16px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--texto-principal);
+            transition: all 0.3s ease;
+            text-align: left;
+            font-weight: 300;
+        }
+        .quiz-btn:hover {
+            border-color: var(--dorado-acento);
+            background-color: #fffdf9;
+            transform: translateY(-2px);
+        }
+        .resultado-box {
+            display: none;
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .resultado-header {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--dorado-acento);
+            margin-bottom: 10px;
+            display: block;
+        }
+        .resultado-titulo {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        .resultado-desc {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         footer { 
             text-align: center; 
             padding: 60px; 
             font-size: 0.8rem; 
             letter-spacing: 2px; 
             color: #bbb;
-            border-top: 1px solid #eae6df;
         }
 
         /* Responsivo para Celulares */
@@ -203,6 +272,8 @@
             .grid { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: 2.5rem; }
             .slider img { max-height: 260px; } 
+            .quiz-container { padding: 25px 20px; }
+            .seccion-quiz { padding: 60px 20px; }
         }
     </style>
 </head>
@@ -261,10 +332,70 @@
         </div>
     </section>
 
+    <!-- NUEVA SECCIÓN INTERACTIVA: DIAGNOSTICADOR EXPRESS -->
+    <section class="seccion-quiz">
+        <h2>Encuentra tu Ritual Ideal</h2>
+        <p style="font-weight: 300; color: #777; max-width: 500px; margin: 5px auto 0 auto;">Responde a una sola pregunta y nuestra inteligencia capilar te recomendará el tratamiento exacto.</p>
+        
+        <div class="quiz-container">
+            <!-- Bloque de la Pregunta -->
+            <div id="quiz-pregunta-box">
+                <h3>¿Cuál es la mayor necesidad actual de tu cabello?</h3>
+                <div class="quiz-opciones">
+                    <button class="quiz-btn" onclick="mostrarResultado('hidratacion')">✦ Siento el cabello seco, opaco y con frizz constante</button>
+                    <button class="quiz-btn" onclick="mostrarResultado('cerafria')">✦ Busco una restauración profunda, alisar y eliminar volumen sin usar formol</button>
+                    <button class="quiz-btn" onclick="mostrarResultado('mantenimiento')">✦ Quiero mantenerlo saludable, sedoso y proteger las puntas diariamente</button>
+                </div>
+            </div>
+
+            <!-- Bloque Dinámico de Resultados -->
+            <div id="quiz-resultado-box" class="resultado-box">
+                <span class="resultado-header">Tu Diagnóstico Capilar</span>
+                <h4 id="res-titulo" class="resultado-titulo">Tratamiento Recomendado</h4>
+                <p id="res-desc" class="resultado-desc">Cargando recomendación...</p>
+                <button class="btn-main" style="margin-top: 0;" onclick="reiniciarQuiz()">Consultar Otro Caso</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Pie de página -->
     <footer>
         &copy; 2026 CAPILER PROFESIONAL. BEYOND BEAUTY.
     </footer>
+
+    <!-- INTERACTIVIDAD CON JAVASCRIPT -->
+    <script>
+        function mostrarResultado(tipo) {
+            // Ocultamos la pregunta con suavidad
+            document.getElementById('quiz-pregunta-box').style.display = 'none';
+            
+            // Contenedores de texto del resultado
+            const titulo = document.getElementById('res-titulo');
+            const desc = document.getElementById('res-desc');
+            
+            // Asignación de respuestas según el click
+            if (tipo === 'hidratacion') {
+                titulo.innerText = "Ritual Hidratación Profunda";
+                desc.innerText = "Tu cabello necesita recuperar agua y nutrientes esenciales. Te sugerimos nuestro tratamiento de Hidratación Profunda con extractos de uva y vitamina E para eliminar el frizz por completo y devolverle el brillo natural.";
+            } else if (tipo === 'cerafria') {
+                titulo.innerText = "Tratamiento con Cerafría";
+                desc.innerText = "Tu opción ideal es el Tratamiento con Cerafría. Te ayudará a reestructurar la fibra capilar, nutrir intensamente con aceite de argán y conseguir un alisado impecable por hasta 3 meses de forma 100% segura.";
+            } else if (tipo === 'mantenimiento') {
+                titulo.innerText = "Línea Pure Essence & Serum";
+                desc.innerText = "Para mantener tu estructura capilar en óptimas condiciones, te recomendamos complementar tu rutina diaria con el Pure Essence Botánica y unas gotas de nuestro Premium Hair Care Serum en las puntas.";
+            }
+            
+            // Mostramos el resultado de forma interactiva
+            const resultadoBox = document.getElementById('quiz-resultado-box');
+            resultadoBox.style.display = 'block';
+        }
+
+        function reiniciarQuiz() {
+            // Regresar al estado inicial de la pregunta
+            document.getElementById('quiz-resultado-box').style.display = 'none';
+            document.getElementById('quiz-pregunta-box').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
