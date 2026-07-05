@@ -3,289 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAPILER | Ciencia Capilar Avanzada</title>
+    <title>CAPILER | Minimalist Beauty</title>
     <style>
-        /* --- ESTILOS FUTURISTAS --- */
-        
-        /* Variables de Color */
+        /* Variables de color estilo "Premium Natural" */
         :root {
-            --fondo-oscuro: #0a0a12; /* Un azul marino muy oscuro, casi negro */
-            --texto-claro: #e0e6ed;  /* Un gris muy claro, suave para la vista */
-            --acento-neón: #00f2ff;  /* Cian brillante para detalles */
-            --secundario-neon: #7000ff; /* Tono morado para contrastes sutiles */
+            --fondo: #fdfaf6;
+            --texto: #4a4a4a;
+            --acento: #d4b499; /* Tono arena suave */
+            --blanco: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body { 
-            font-family: 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
-            line-height: 1.6; 
-            color: var(--texto-claro); 
-            background-color: var(--fondo-oscuro);
-            /* Fondo con patrón sutil de puntos (efecto digital) */
-            background-image: radial-gradient(#191932 1px, transparent 1px);
-            background-size: 20px 20px;
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            line-height: 1.8; 
+            color: var(--texto); 
+            background-color: var(--fondo);
         }
 
-        /* Navegación (Estilo Barra de Comando) */
+        /* Nav Minimalista */
         nav { 
-            display: flex; 
-            justify-content: space-between; 
-            padding: 25px 10%; 
-            background: rgba(10, 10, 18, 0.95); /* Semi-transparente */
-            backdrop-filter: blur(10px); /* Efecto vidrio esmerilado */
+            display: flex; justify-content: space-between; padding: 30px 10%; 
             align-items: center; 
-            position: fixed; /* Fija arriba */
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid #191932;
         }
-        
-        .logo { 
-            font-size: 28px; 
-            font-weight: 800; 
-            letter-spacing: 3px; 
-            color: #fff; 
-            text-transform: uppercase;
-            /* Sombra de neón sutil */
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
-        }
-        
+        .logo { font-size: 20px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; }
         .nav-links a { 
-            text-decoration: none; 
-            color: var(--texto-claro); 
-            margin-left: 30px; 
-            font-size: 14px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
+            text-decoration: none; color: var(--texto); margin-left: 30px; 
+            font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
         }
-        
-        .nav-links a:hover { color: var(--acento-neón); }
 
-        /* Hero Section (El Portal) */
+        /* Hero */
         .hero { 
-            height: 100vh; /* Ocupa toda la pantalla */
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            padding: 0 20px;
-            background: radial-gradient(circle at center, #1a1a2e 0%, var(--fondo-oscuro) 70%);
-            position: relative;
-            overflow: hidden;
+            height: 70vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; text-align: center;
         }
-
-        /* Elemento decorativo de fondo (tipo luz láser) */
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 300px; height: 300px;
-            background: var(--secundario-neon);
-            filter: blur(150px);
-            opacity: 0.2;
-            border-radius: 50%;
-            animation: pulsate 4s infinite alternate;
-        }
-
-        @keyframes pulsate {
-            0% { transform: scale(1); opacity: 0.2; }
-            100% { transform: scale(1.5); opacity: 0.4; }
-        }
-
-        .hero h1 { 
-            font-size: 4rem; 
-            margin-bottom: 15px; 
-            line-height: 1.1;
-            background: linear-gradient(90deg, #ffffff, var(--acento-neón));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent; /* Texto transparente para mostrar el degradado */
-            font-weight: 900;
-        }
-
-        .hero p {
-            max-width: 600px;
-            color: #a0aab5;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .btn { 
-            padding: 18px 40px; 
-            background: linear-gradient(45deg, var(--acento-neón), #00c3ff);
-            color: #000; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 242, 255, 0.4);
-            border: none;
-            cursor: pointer;
-        }
+        .hero h1 { font-size: 3.5rem; font-weight: 200; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero p { font-weight: 300; font-size: 1.1rem; color: #888; max-width: 500px; }
         
-        .btn:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 20px rgba(0, 242, 255, 0.6);
+        .btn-main { 
+            margin-top: 30px; padding: 15px 40px; border: 1px solid var(--acento);
+            background: transparent; color: var(--acento); text-transform: uppercase;
+            letter-spacing: 2px; font-size: 12px; cursor: pointer; transition: 0.3s;
         }
+        .btn-main:hover { background: var(--acento); color: white; }
 
-        /* Seccion Productos (El Laboratorio) */
-        .seccion-productos { padding: 120px 10% 80px; } /* Padding superior extra por el nav fijo */
-        
-        .seccion-productos h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #fff;
-        }
+        /* Productos */
+        .seccion-productos { padding: 80px 10%; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
+        .card { text-align: center; }
+        .card img { width: 100%; height: 350px; object-fit: cover; margin-bottom: 20px; background: #eee; }
+        .card h3 { font-weight: 400; font-size: 1.2rem; }
+        .card p { font-size: 0.9rem; color: #999; margin-bottom: 10px; }
+        .precio { display: block; font-size: 0.9rem; color: #bbb; }
 
-        .subtitulo-seccion {
-            text-align: center;
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto 60px;
-        }
+        footer { text-align: center; padding: 60px; font-size: 0.8rem; letter-spacing: 2px; color: #aaa; }
 
-        .grid-productos { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 40px; 
-        }
-        
-        .item { 
-            background: #141421; /* Fondo de tarjeta ligeramente más claro que el body */
-            padding: 30px; 
-            text-align: center; 
-            border-radius: 12px;
-            border: 1px solid #1f1f33;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Efecto hover en tarjeta: borde neón */
-        .item:hover {
-            transform: translateY(-10px);
-            border-color: var(--acento-neón);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        
-        .item img { 
-            width: 100%; 
-            height: 220px; 
-            object-fit: cover; 
-            margin-bottom: 20px; 
-            border-radius: 8px;
-            filter: brightness(0.9); /* Ligeramente oscurecida para el modo oscuro */
-            transition: filter 0.3s ease;
-        }
-
-        .item:hover img { filter: brightness(1); }
-
-        .item h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
-        .item p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 15px; }
-
-        .precio { 
-            font-size: 1.3rem;
-            font-weight: bold; 
-            color: var(--acento-neón); 
-            display: block; 
-            margin: 15px 0; 
-        }
-
-        .btn-secundario {
-            background: transparent;
-            border: 2px solid var(--acento-neón);
-            color: var(--acento-neón);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secundario:hover {
-            background: var(--acento-neón);
-            color: #000;
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
-        }
-
-        footer { 
-            text-align: center; 
-            padding: 60px; 
-            background: #080810; 
-            margin-top: 100px; 
-            border-top: 1px solid #1f1f33;
-            color: #575775;
-        }
-
-        /* Ajuste para pantallas pequeñas */
         @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.5rem; }
-            nav { padding: 20px 5%; }
-            .nav-links a { margin-left: 15px; font-size: 12px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Capiler</div>
+        <div class="logo">CAPILER</div>
         <div class="nav-links">
-            <a href="#productos">Tecnología</a>
-            <a href="#">Tratamientos</a>
-            <a href="#">Soporte</a>
+            <a href="#">Colección</a>
+            <a href="#">Filosofía</a>
+            <a href="#">Contacto</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>El Futuro de tu Cabello,<br> Hoy.</h1>
-        <p>Descubre la fusión entre biotecnología avanzada y cuidado capilar de lujo. Resultados visibles desde la primera sesión.</p>
-        <a href="#productos" class="btn">Descubrir Innovación</a>
+        <h1>Pureza Capilar</h1>
+        <p>Tratamientos diseñados para elevar la esencia natural de tu cabello con ingredientes botánicos de alta gama.</p>
+        <button class="btn-main">Explorar Línea</button>
     </header>
 
-    <section id="productos" class="seccion-productos">
-        <h2>Protocolos Avanzados</h2>
-        <p class="subtitulo-seccion">Selecciona tu tratamiento basado en nanotecnología molecular.</p>
-        
-        <div class="grid-productos">
-            <!-- Producto 1 -->
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?q=80&w=500&auto=format&fit=crop" alt="Serum Capilar Futurista">
-                <h3>Quantum Repair Serum</h3>
-                <p>Repara enlaces capilares a nivel cuántico con micro-péptidos.</p>
-                <span class="precio">99.99 €</span>
-                <button class="btn-secundario">Activar Protocolo</button>
+    <section class="seccion-productos">
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=600&auto=format&fit=crop" alt="Producto">
+                <h3>Esencia Botánica</h3>
+                <p>Hidratación profunda</p>
+                <span class="precio">$45.00</span>
             </div>
-
-            <!-- Producto 2 -->
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=500&auto=format&fit=crop" alt="Dispositivo Capilar LED">
-                <h3>Photon Hair Activator</h3>
-                <p>Casco de terapia lumínica LED de baja frecuencia para estimular folículos.</p>
-                <span class="precio">249.00 €</span>
-                <button class="btn-secundario">Activar Protocolo</button>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1598440947619-2c35fd9571e0?q=80&w=600&auto=format&fit=crop" alt="Producto">
+                <h3>Serum de Seda</h3>
+                <p>Brillo orgánico</p>
+                <span class="precio">$38.00</span>
             </div>
-
-            <!-- Producto 3 -->
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1591351740396-7b108e58a06c?q=80&w=500&auto=format&fit=crop" alt="Mascarilla Capilar Innovadora">
-                <h3>Cryo-Fusion Masque</h3>
-                <p>Tratamiento de choque en frío que sella la cutícula instantáneamente.</p>
-                <span class="precio">75.00 €</span>
-                <button class="btn-secundario">Activar Protocolo</button>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=600&auto=format&fit=crop" alt="Producto">
+                <h3>Ritual Nocturno</h3>
+                <p>Reparación intensiva</p>
+                <span class="precio">$52.00</span>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 CAPILER - División de Biotecnología Capilar Avanzada.</p>
+        &copy; 2026 CAPILER. BEYOND BEAUTY.
     </footer>
 
 </body>
