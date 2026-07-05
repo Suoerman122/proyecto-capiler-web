@@ -101,11 +101,11 @@
             color: var(--blanco-puro); 
         }
 
-        /* --- SECCIÓN DEL CARRUSEL AJUSTADA PARA MÁXIMA NITIDED Y SEPARACIÓN --- */
+        /* --- CARRUSEL ULTRA-NITIDED CON FILTROS --- */
         .seccion-publicidad {
             width: 100%;
-            max-width: 500px;    /* Reducido para compactar píxeles y quitar lo borroso */
-            margin: 50px auto 60px auto; /* 50px de separación respecto al botón superior */
+            max-width: 440px;    /* Reducido ligeramente más para forzar mayor densidad de píxeles */
+            margin: 50px auto 60px auto; 
             padding: 0 20px;
         }
 
@@ -128,14 +128,17 @@
         .slider img {
             width: 50%; 
             height: auto;
-            max-height: 350px;   /* Altura máxima más compacta para evitar estiramientos */
+            max-height: 320px;   
             object-fit: contain; 
             background-color: #fff; 
             
-            /* Filtros de renderizado nítido */
+            /* Renderizado de bordes limpios */
             image-rendering: -webkit-optimize-contrast; 
             image-rendering: crisp-edges;               
-            transform: translateZ(0);                   
+            transform: translateZ(0);       
+
+            /* FILTRO DE ENFOQUE: Eleva el contraste sutilmente para hacer las letras más legibles */
+            filter: contrast(1.06) brightness(0.99) saturate(1.02);            
         }
 
         /* Animación automatizada para el cambio de imágenes */
@@ -199,8 +202,7 @@
             .nav-links a { margin: 0 10px; font-size: 11px; }
             .grid { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: 2.5rem; }
-            .seccion-publicidad { margin-top: 40px; } /* Ajuste de espacio en móviles */
-            .slider img { max-height: 280px; } 
+            .slider img { max-height: 260px; } 
         }
     </style>
 </head>
@@ -225,7 +227,7 @@
         <button class="btn-main">Explorar Línea</button>
     </header>
 
-    <!-- Banner Publicitario Deslizable Optimizado en Espacio y Enfoque -->
+    <!-- Banner Publicitario Deslizable Optimizado con Filtros de Contraste -->
     <section class="seccion-publicidad">
         <div class="slider-wrapper">
             <div class="slider">
