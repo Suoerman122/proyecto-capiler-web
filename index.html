@@ -38,12 +38,12 @@
 
         /* Ajustes de Alta Resolución y Contorno Hueso */
         .logo-img { 
-            width: 120px;      /* Mayor tamaño para máxima resolución y claridad */
-            height: 120px;     /* Proporción idéntica para círculo perfecto */
-            object-fit: cover; /* Asegura que el logo se centre perfectamente */
-            border-radius: 50%; /* Corte completamente circular */
-            border: 3px solid var(--color-hueso); /* Contorno grueso color hueso */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Sombra milimétrica para dar relieve */
+            width: 120px;      
+            height: 120px;     
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 3px solid var(--color-hueso); 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); 
         }
         
         .nav-links a { 
@@ -62,7 +62,7 @@
 
         /* Hero / Portada */
         .hero { 
-            height: 65vh; 
+            height: 45vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
@@ -82,6 +82,42 @@
             font-size: 1.1rem; 
             color: #777; 
             max-width: 550px; 
+        }
+
+        /* --- SECCIÓN DEL CARRUSEL PUBLICITARIO CON RECORTE INTELIGENTE --- */
+        .seccion-publicidad {
+            width: 100%;
+            max-width: 600px; /* Ancho óptimo para centrar la atención en el flyer */
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .slider-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            background: #fff;
+        }
+
+        .slider {
+            display: flex;
+            width: 200%; 
+            animation: deslizarContinuo 10s infinite ease-in-out;
+        }
+
+        .slider img {
+            width: 50%; 
+            height: 320px;        /* Altura fija controlada */
+            object-fit: cover;    /* ¡Aquí ocurre la magia! Recorta los bordes negros y la interfaz del móvil */
+            object-position: center 40%; /* Enfoca un poco más arriba del centro para no perder los títulos */
+        }
+
+        /* Animación para cambiar de imagen automáticamente y pausar en cada una */
+        @keyframes deslizarContinuo {
+            0%, 45% { transform: translateX(0); }       
+            50%, 95% { transform: translateX(-50%); }   
+            100% { transform: translateX(0); }          
         }
         
         .btn-main { 
@@ -151,10 +187,11 @@
         /* Responsivo para Celulares */
         @media (max-width: 768px) {
             nav { flex-direction: column; gap: 20px; padding: 20px; }
-            .logo-img { width: 100px; height: 100px; } /* Se adapta sutilmente en pantallas chicas */
+            .logo-img { width: 100px; height: 100px; } 
             .nav-links a { margin: 0 10px; font-size: 11px; }
             .grid { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: 2.5rem; }
+            .slider img { height: 260px; } /* Ajuste de altura menor para pantallas de móvil */
         }
     </style>
 </head>
@@ -163,7 +200,6 @@
     <!-- Navegación -->
     <nav>
         <div class="logo-container">
-            <!-- Imagen en Alta resolución local con contorno color hueso -->
             <img src="Capiler_2.jpg" alt="CAPILER PROFESIONAL" class="logo-img">
         </div>
         <div class="nav-links">
@@ -179,6 +215,16 @@
         <p>Tratamientos de alta gama diseñados para restaurar y elevar la esencia natural de tu cabello.</p>
         <button class="btn-main">Explorar Línea</button>
     </header>
+
+    <!-- Banner Publicitario Deslizable (Slider con imágenes ya recortadas por CSS) -->
+    <section class="seccion-publicidad">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img src="WhatsApp Image 2026-07-05 at 03.03.34.jpeg" alt="Tratamiento con Cerafria Beneficios">
+                <img src="WhatsApp Image 2026-07-05 at 03.03.34 (3).jpeg" alt="Hidratación Profunda Capiler">
+            </div>
+        </div>
+    </section>
 
     <!-- Vitrina de Productos -->
     <section class="seccion-productos">
