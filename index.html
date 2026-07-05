@@ -35,12 +35,13 @@
             align-items: center;
         }
 
-        /* Estilos para el nuevo logo con bordes redondeados */
+        /* Estilos para transformar el logo en un círculo perfecto */
         .logo-img { 
-            height: 65px; /* Altura ideal para la barra de navegación */
-            width: auto;
-            object-fit: contain;
-            border-radius: 8px; /* Bordes redondeados añadidos aquí */
+            width: 70px;      /* Ancho fijo */
+            height: 70px;     /* Alto idéntico para que sea un cuadrado perfecto */
+            object-fit: cover; /* Recorta los extremos para centrar el contenido */
+            border-radius: 50%; /* Hace la imagen completamente redonda */
+            border: 1px solid rgba(204, 170, 124, 0.3); /* Línea dorada muy sutil alrededor */
         }
         
         .nav-links a { 
@@ -159,7 +160,7 @@
     <!-- Navegación -->
     <nav>
         <div class="logo-container">
-            <!-- Tu nueva imagen de referencia integrada con bordes redondeados -->
+            <!-- Imagen en formato de círculo perfecto -->
             <img src="Capiler_2.jpg" alt="CAPILER PROFESIONAL" class="logo-img">
         </div>
         <div class="nav-links">
