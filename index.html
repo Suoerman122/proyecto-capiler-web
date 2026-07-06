@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAPILER | Minimalist Beauty</title>
+    <!-- Importación de la nueva fuente llamativa y decorativa para el título -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@600&family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
         /* Variables de color basadas en la nueva identidad visual */
         :root {
@@ -38,7 +41,7 @@
 
         /* Ajustes de Alta Resolución y Contorno Hueso */
         .logo-img { 
-            width: 120px;      
+            width: 120px;       
             height: 120px;     
             object-fit: cover; 
             border-radius: 50%; 
@@ -85,6 +88,7 @@
             max-width: 550px; 
         }
         
+        /* OPTIMIZADO: Opción 1 con efecto Glow elegante */
         .btn-main { 
             margin-top: 35px; 
             padding: 14px 45px; 
@@ -95,11 +99,16 @@
             letter-spacing: 2px; 
             font-size: 12px; 
             cursor: pointer; 
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 0 0 rgba(204, 170, 124, 0);
         }
         .btn-main:hover { 
             background: var(--dorado-acento); 
             color: var(--blanco-puro); 
+            box-shadow: 0 0 20px 5px rgba(204, 170, 124, 0.3);
+            transform: translateY(-2px);
         }
 
         /* --- CARRUSEL ULTRA-NITIDED CON FILTROS --- */
@@ -134,7 +143,7 @@
             background-color: #fff; 
             
             image-rendering: -webkit-optimize-contrast; 
-            image-rendering: crisp-edges;               
+            image-rendering: crisp-edges;                
             transform: translateZ(0);       
 
             filter: contrast(1.06) brightness(0.99) saturate(1.02);            
@@ -146,7 +155,7 @@
             100% { transform: translateX(0); }          
         }
 
-        /* --- DIAGNOSTICADOR CAPILAR INTERACTIVO --- */
+        /* --- DIAGNOSTICADOR INTERACTIVO --- */
         .seccion-quiz {
             background-color: #ffffff;
             padding: 80px 10%;
@@ -236,15 +245,27 @@
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 20px auto;
             border-bottom: 1px solid #eae6df;
             padding-bottom: 20px;
         }
+        
+        /* Tipografía Cinzel Decorative */
         .modal-header h2 {
-            font-size: 2rem;
-            font-weight: 300;
+            font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+            font-size: 2.1rem;
+            font-weight: 600;
             letter-spacing: 1px;
+            color: #222222;
+            text-transform: uppercase;
         }
+
+        /* Estilo específico para pintar los rombos en un elegant color dorado */
+        .rombo-dorado {
+            color: var(--dorado-acento);
+            margin: 0 10px; 
+        }
+        
         .btn-cerrar {
             background: transparent;
             border: none;
@@ -254,6 +275,41 @@
             transition: color 0.3s;
         }
         .btn-cerrar:hover { color: var(--dorado-acento); }
+
+        /* Controles de Navegación de Páginas Opcion 2 */
+        .catalogo-navegacion {
+            display: flex;
+            justify-content: center; 
+            align-items: center;      
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+        }
+        .btn-nav-pag {
+            padding: 10px 24px;
+            border: 1px solid var(--texto-principal);
+            background: transparent;
+            color: var(--texto-principal);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            min-width: 140px;
+        }
+        .btn-nav-pag:hover {
+            background: var(--texto-principal);
+            color: var(--blanco-puro);
+        }
+        .indicador-paginas {
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #777;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
         
         /* Grid de Productos Optimizado */
         .catalogo-grid {
@@ -263,6 +319,16 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        
+        /* Clases para alternar visibilidad de las páginas */
+        .page-view {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .page-view.active {
+            display: grid;
+        }
+
         .producto-card {
             background: var(--blanco-puro);
             border-radius: 12px;
@@ -275,7 +341,7 @@
             justify-content: space-between;
         }
 
-        /* EFECTO DE RECORTE INTELIGENTE: Elimina bordes negros de las capturas */
+        /* EFECTO DE RECORTE INTELIGENTE */
         .producto-card .img-container {
             width: 100%;
             height: 240px;
@@ -287,8 +353,8 @@
         .producto-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover;      /* Zoom centralizado automático */
-            object-position: center; /* Enfoca el centro del diseño */
+            object-fit: cover;      
+            object-position: center; 
         }
 
         .producto-card h4 {
@@ -377,6 +443,11 @@
             .quiz-container { padding: 25px 20px; }
             .seccion-quiz { padding: 60px 20px; }
             .modal-catalogo { padding: 40px 20px; }
+            .modal-header h2 { font-size: 1.2rem; letter-spacing: 0.5px; } 
+            .rombo-dorado { margin: 0 4px; }
+            .catalogo-navegacion { gap: 12px; margin-bottom: 25px; }
+            .btn-nav-pag { padding: 8px 14px; font-size: 10px; min-width: 100px; }
+            .indicador-paginas { font-size: 11px; }
         }
     </style>
 </head>
@@ -428,7 +499,7 @@
 
             <div id="quiz-resultado-box" class="resultado-box">
                 <span class="resultado-header">Tu Diagnóstico Capilar</span>
-                <h4 id="res-titulo" class="resultado-titulo">Tratamiento Recomendado</h4>
+                <h4 id="res-titulo" class="resultado-titulo">Tratamiento Recommended</h4>
                 <p id="res-desc" class="resultado-desc">Cargando recomendación...</p>
                 <button class="btn-main" style="margin-top: 0; margin-bottom: 10px;" id="btn-whatsapp-quiz">Agendar Tratamiento</button>
                 <br>
@@ -437,20 +508,29 @@
         </div>
     </section>
 
-    <!-- VENTANA EMERGENTE (MODAL) DEL CATÁLOGO CORREGIDO CON IMÁGENES 1-9 -->
+    <!-- VENTANA EMERGENTE (MODAL) MULTI-CATÁLOGO -->
     <div id="ventana-catalogo" class="modal-catalogo">
         <div class="modal-header">
-            <h2>Nuestra Línea Exclusiva</h2>
+            <!-- Título inicial de la página 1 -->
+            <h2 id="titulo-catalogo-dinamico"><span class="rombo-dorado">✦</span>Tratamientos Capilares Libre de Frizz<span class="rombo-dorado">✦</span></h2>
             <button class="btn-cerrar" onclick="cerrarCatalogo()">✕</button>
         </div>
         
-        <div class="catalogo-grid">
+        <!-- Paginación Opción 2: Botón Izquierdo, Indicador Central, Botón Derecho -->
+        <div class="catalogo-navegacion">
+            <button class="btn-nav-pag" id="btn-pag-anterior" onclick="retrocederPagina()">← Anterior</button>
+            <span class="indicador-paginas" id="texto-contador-paginas">Página 1 de 3</span>
+            <button class="btn-nav-pag" id="btn-pag-siguiente" onclick="avanzarPagina()">Siguiente →</button>
+        </div>
+
+        <!-- ================= PÁGINA 1: TRATAMIENTOS CAPILARES LIBRE DE FRIZZ ================= -->
+        <div id="catalogo-pagina-1" class="catalogo-grid page-view active">
             <!-- Producto 1 -->
             <div class="producto-card">
                 <div class="img-container"><img src="1.jpeg" alt="Tratamiento con Cerafría"></div>
                 <div>
                     <h4>Tratamiento con Cerafría</h4>
-                    <p>Restauración profunda de las fibras capilares. Alisa el cabello por 3 meses, nutre intensamente y previene el maltrato.</p>
+                    <p>Restauración profunda de las fibers capilares. Alisa el cabello por 3 meses, nutre intensamente y previene el maltrato.</p>
                 </div>
                 <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20con%20Cerafr%C3%ADa.', '_blank')">Consultar por WhatsApp</button>
             </div>
@@ -532,7 +612,133 @@
                     <h4>Tratamiento Alisante Advance</h4>
                     <p>Potenciado con Keratina y Elastina. Alisa hasta un 99.9%, ideal para cabellos rizados que buscan control, sedosidad y brillo.</p>
                 </div>
-                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20Alisante%20Advance.', '_blank')">Consultar por WhatsApp</button>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20alisante%20Advance.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- ================= PÁGINA 2: CATÁLOGO DE TRATAMIENTOS CAPILARES ================= -->
+        <div id="catalogo-pagina-2" class="catalogo-grid page-view">
+            <!-- Imagen 1: Portada Catálogo -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c2_1.jpeg" alt="Capiler Catálogo de Productos"></div>
+                <div>
+                    <h4>Línea de Productos Capiler</h4>
+                    <p>Explora la guía visual exclusiva para conocer a fondo nuestra filosofía de reparación y belleza minimalista.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20su%20cat%C3%A1logo%20de%20productos.', '_blank')">Solicitar Información</button>
+            </div>
+
+            <!-- Imagen 2: Frizz Control Beneficios -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c2_2.jpeg" alt="Frizz Control Beneficios"></div>
+                <div>
+                    <h4>Frizz Control Beneficios</h4>
+                    <p>Protector de calor avanzado que resguarda el cabello de los daños causados por la plancha y la secadora. Hidrata a profundidad y elimina considerablemente el frizz (efecto de 3 a 6 meses de uso continuo).</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20me%20interesa%20la%20l%C3%ADnea%20Frizz%20Control%20por%20sus%20beneficios.', '_blank')">Consultar Beneficios</button>
+            </div>
+
+            <!-- Imagen 3: Frizz Control Tamaños y Usos -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c2_3.jpeg" alt="Frizz Control Tamaños y Modos de Uso"></div>
+                <div>
+                    <h4>Frizz Control Especificaciones</h4>
+                    <p>Disponible en 120ml, 250ml, 500ml, 1 Litro y 1 Galón con exquisito aroma Amarilis. Enriquecido con Vitamina E, Aceite de Argán, Colágeno, Silicona, Aloe Vera y Aceite de Jojoba.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20quiero%20conocer%20los%20precios%20y%20tama%C3%B1os%20de%20la%20l%C3%ADnea%20Frizz%20Control.', '_blank')">Ver Tamaños Disponibles</button>
+            </div>
+
+            <!-- Imagen 4: Puntas Perfectas Beneficios -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c2_4.jpeg" alt="Puntas Perfectas Beneficios"></div>
+                <div>
+                    <h4>Puntas Perfectas Beneficios</h4>
+                    <p>Efecto alisante por un maximum de 10 días, protector de calor integrado y un potente sellador/reparador de puntas. Estimula el crecimiento capilar continuo, actúa como antifrizz sencillo y baja considerablemente el daño de las puntas entre 3 a 6 meses.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20adquirir%20el%20tratamiento%20Puntas%20Perfectas.', '_blank')">Consultar Tratamiento</button>
+            </div>
+
+            <!-- Imagen 5: Puntas Perfectas Tamaños y Componentes -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c2_5.jpeg" alt="Puntas Perfectas Modos de Uso"></div>
+                <div>
+                    <h4>Puntas Perfectas Especificaciones</h4>
+                    <p>Fórmula enriquecera con Vitamina E, Aceite de Jojoba, Colágeno y Keratina. Disponible en presentaciones de 120ml, 250ml, 500ml, 1 Litro y 1 Galón con deliciosos aromas a Chocolate, Chocolate/Vainilla y Coco.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20necesito%20detalles%20de%20uso%20y%20presentaciones%20de%20Puntas%20Perfectas.', '_blank')">Ver Modos de Uso</button>
+            </div>
+
+            <!-- Imagen 6: Color Intense -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c2_6.jpeg" alt="Color Intense Tratamiento Matizante"></div>
+                <div>
+                    <h4>Línea Color Intense</h4>
+                    <p>Resalta e intensifica los colores del tinturado ayudando a mantenerlos por más tiempo y eliminando el reflejo naranja. Aporta un espectacular brillo, suavidad y disminuye el frizz. Contiene Vitamina E, B6, Keratina, Colágeno y matizante activo con aroma a Uva.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20el%20matizante%20Color%20Intense.', '_blank')">Consultar Matizante</button>
+            </div>
+        </div>
+
+        <!-- ================= PÁGINA 3: TRATAMIENTOS CAPILARES Y KERATINAS ================= -->
+        <div id="catalogo-pagina-3" class="catalogo-grid page-view">
+            <!-- Producto 1 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c3_1.jpeg" alt="Tratamiento Células Madre"></div>
+                <div>
+                    <h4>Células Madre</h4>
+                    <p>Regeneración, reconstrucción y fortalecimiento capilar profundo desde la raíz hasta las puntas.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20el%20Tratamiento%20C%C3%A9lulas%20Madre.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c3_2.jpeg" alt="Oro de Colágeno"></div>
+                <div>
+                    <h4>Oro de Colágeno</h4>
+                    <p>Aporta brillo máximo, vitalidad excepcional y elasticidad elástica a la fibra capilar debilitada.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20Oro%20de%20Col%C3%A1geno.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c3_3.jpeg" alt="Crema Exfoliante"></div>
+                <div>
+                    <h4>Crema Exfoliante</h4>
+                    <p>Línea refrescante e hidratante para el cuidado, renovación celular y descanso de pies y manos.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20la%20Crema%20Exfoliante.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c3_4.jpeg" alt="Línea Especializada"></div>
+                <div>
+                    <h4>Línea Especializada</h4>
+                    <p>Variedad de soluciones efectivas profesionales para tratamientos Botox, Color Intense y Frizz Control.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20la%20L%C3%ADnea%20Especializada.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c3_5.jpeg" alt="Crema Manos y Cuerpo"></div>
+                <div>
+                    <h4>Crema Manos y Cuerpo</h4>
+                    <p>Protección diaria profunda, suavidad prolongada y cuidado nutritivo de alta gama para tu piel.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20la%20Crema%20Manos%20y%20Cuerpo.', '_blank')">Consultar por WhatsApp</button>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="producto-card">
+                <div class="img-container"><img src="c3_6.jpeg" alt="Línea Advance"></div>
+                <div>
+                    <h4>Línea Advance</h4>
+                    <p>Reconstrucción intensa con Keratina, Células Madre y tratamientos avanzados para puntas perfectas.</p>
+                </div>
+                <button class="btn-main" onclick="window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20deseo%20informaci%C3%B3n%20sobre%20la%20L%C3%ADnea%20Advance.', '_blank')">Consultar por WhatsApp</button>
             </div>
         </div>
     </div>
@@ -556,9 +762,15 @@
 
     <!-- INTERACTIVIDAD CON JAVASCRIPT -->
     <script>
+        // Control de página activa global
+        let paginaActual = 1;
+        const totalPaginas = 3;
+
         function abrirCatalogo() {
             document.getElementById('ventana-catalogo').style.display = 'block';
             document.body.style.overflow = 'hidden'; 
+            paginaActual = 1; // Siempre abrir en la primera página
+            actualizarVistaCatalogo(); 
         }
 
         function cerrarCatalogo() {
@@ -566,41 +778,77 @@
             document.body.style.overflow = 'auto'; 
         }
 
-        function mostrarResultado(tipo) {
-            document.getElementById('quiz-pregunta-box').style.display = 'none';
-            
-            const titulo = document.getElementById('res-titulo');
-            const desc = document.getElementById('res-desc');
-            const btnWhatsapp = document.getElementById('btn-whatsapp-quiz');
-            let mensajePersonalizado = "";
-            
-            if (tipo === 'hidratacion') {
-                titulo.innerText = "Ritual Hidratación Profunda";
-                desc.innerText = "Utiliza puntas perfectas para sellar tus puntas y eliminar el frizz hidrata y reconstruye tu cabello con puntas perfectas también podemos utilizar el tratamiento con extracto de banana por su alto contenido de potasio que contiene, adicional te va a eliminar también la caída de cabello con tratamiento con extracto de banana intenta eliminar el frizz inmediatamente con células madres tratamiento.";
-                mensajePersonalizado = "Hola Capiler, mi diagnóstico fue Ritual Hidratación Profunda (Banana y Células Madres). Me interesa agendar.";
-            } else if (tipo === 'cerafria') {
-                titulo.innerText = "Tratamiento con Cerafría";
-                desc.innerText = "Células madres con queratina reconstruye tu cabello alisa e hidrata y elimina la caída de cabello solamente lo puedes hacer con células madres con queratina and su sellador de células madres tratamiento nuestro champú sin sal de limpieza profunda para sellar totalmente antes de utilizar las células madre con queratina.";
-                mensajePersonalizado = "Hola Capiler, mi diagnóstico fue Tratamiento con Cerafría (Células Madres con Queratina). Quisiera separar una cita.";
-            } else if (tipo === 'mantenimiento') {
-                titulo.innerText = "Línea de Cuidado Diario";
-                desc.innerText = "Hidrata reconstruye protege sella tus puntas con oro de colágeno con su alto contenido de ácido hialurónico y colágeno te van a reconstruir inmediatamente tus puntas y te la sellará igual manera con puntas perfectas puedes utilizar esta combinación un cóctel de tratamientos. Punta perfecta con oro de colágeno.";
-                mensajePersonalizado = "Hola Capiler, mi diagnóstico fue Línea de Cuidado Diario (Oro de Colágeno y Puntas Perfectas). Deseo más información.";
+        // Funciones de navegación secuencial (Opción 2)
+        function avanzarPagina() {
+            if (paginaActual < totalPaginas) {
+                paginaActual++;
+                actualizarVistaCatalogo();
             }
-            
-            btnWhatsapp.onclick = function() {
-                window.open("https://wa.me/593983852805?text=" + encodeURIComponent(mensajePersonalizado), "_blank");
-            };
-            
-            const resultadoBox = document.getElementById('quiz-resultado-box');
-            resultadoBox.style.display = 'block';
         }
 
+        function retrocederPagina() {
+            if (paginaActual > 1) {
+                paginaActual--;
+                actualizarVistaCatalogo();
+            }
+        }
+
+        // LÓGICA DE ACTUALIZACIÓN DINÁMICA DE LA INTERFAZ CON NUEVOS TÍTULOS
+        function actualizarVistaCatalogo() {
+            // Alternar clases activas en las páginas
+            for (let i = 1; i <= totalPaginas; i++) {
+                const pagina = document.getElementById(`catalogo-pagina-${i}`);
+                if (i === paginaActual) {
+                    pagina.classList.add('active');
+                } else {
+                    pagina.classList.remove('active');
+                }
+            }
+
+            // Actualizar el indicador de páginas del medio
+            document.getElementById('texto-contador-paginas').innerText = `Página ${paginaActual} de ${totalPaginas}`;
+
+            // Cambiar el título dinámico según la página seleccionada
+            const tituloDinamico = document.getElementById('titulo-catalogo-dinamico');
+            if (paginaActual === 1) {
+                tituloDinamico.innerHTML = '<span class="rombo-dorado">✦</span>Tratamientos Capilares Libre de Frizz<span class="rombo-dorado">✦</span>';
+            } else if (paginaActual === 2) {
+                tituloDinamico.innerHTML = '<span class="rombo-dorado">✦</span>Catalogo de Tratamientos Capilares<span class="rombo-dorado">✦</span>';
+            } else if (paginaActual === 3) {
+                tituloDinamico.innerHTML = '<span class="rombo-dorado">✦</span>Tratamientos Capilares y Keratinas<span class="rombo-dorado">✦</span>';
+            }
+        }
+
+        // Funciones extras del Diagnosticador Quiz
+        function mostrarResultado(tipo) {
+            document.getElementById('quiz-pregunta-box').style.display = 'none';
+            const resultadoBox = document.getElementById('quiz-resultado-box');
+            resultadoBox.style.display = 'block';
+
+            const titulo = document.getElementById('res-titulo');
+            const desc = document.getElementById('res-desc');
+            const btnWa = document.getElementById('btn-whatsapp-quiz');
+
+            if (tipo === 'hidratacion') {
+                titulo.innerText = 'Hidratación Profunda con Vitamina E';
+                desc.innerText = 'Tu cabello necesita recuperar agua y lípidos. Te recomendamos nuestro tratamiento de Hidratación Profunda para eliminar el frizz un 70% y restaurar el brillo.';
+                btnWa.setAttribute('onclick', "window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20mi%20diagn%C3%B3stico%20fue%20Hidrataci%C3%B3n%20Profunda.%20Quiero%20agendar.', '_blank')");
+            } else if (tipo === 'cerafria') {
+                titulo.innerText = 'Tratamiento con Cerafría / Advance';
+                desc.innerText = 'Para una reestructuración intensa con control de volumen y alisado duradero de hasta 3 meses libre de formol.';
+                btnWa.setAttribute('onclick', "window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20mi%20diagn%C3%B3stico%20fue%20Cerafr%C3%ADa.%20Quiero%20agendar.', '_blank')");
+            } else if (tipo === 'mantenimiento') {
+                titulo.innerText = 'Ritual Puntas Perfectas & Frizz Control';
+                desc.innerText = 'Protección diaria ideal. Mantén la fibra sellada con termo-protección integrada, estimulando el crecimiento y previniendo puntas abiertas.';
+                btnWa.setAttribute('onclick', "window.open('https://wa.me/593983852805?text=Hola%20Capiler,%20mi%20diagn%C3%B3stico%20fue%20Mantenimiento%20Puntas%20Perfectas.%20Quiero%20agendar.', '_blank')");
+            }
+        }
+
+        // Reiniciar Diagnosticador
         function reiniciarQuiz() {
             document.getElementById('quiz-resultado-box').style.display = 'none';
             document.getElementById('quiz-pregunta-box').style.display = 'block';
         }
     </script>
-
 </body>
 </html>
